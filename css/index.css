@@ -1,0 +1,9 @@
+.hero {
+    background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
+}
+.navegar{
+    background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
+}
+.hero{
+    display: flex;
+}
