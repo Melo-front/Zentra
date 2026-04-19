@@ -1,9 +1,80 @@
 .hero {
     background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .navegar{
     background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
 }
-.hero{
+
+h1{
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+.btn-beige {
+    background-color: #c8a46b; /* beige dorado */
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+.Explora{
     display: flex;
+    flex-direction: column;
+}
+
+h2{
+    font-family: 'Playfair Display', serif;
+}
+
+.mujer{
+    background-image: url("../Img/Mujer.jpg");
+    background-size: cover;        
+    background-position: center;  
+    background-repeat: no-repeat; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 40px;
+    
+}
+.cole{
+    display: flex;
+}
+.mujer, .hombre{
+    flex: 1;
+    min-height: 390px;
+}
+.hombre{
+    background-image: url("../Img/Hombre.jpg");
+    background-size: cover;        
+    background-position: center;  
+    background-repeat: no-repeat; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 40px;
+}
+.Todos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, white, #E8DCCB);
+    padding: 10px 0 10px 0;
+}
+
+footer{
+    background-color: #2f3e2f;
 }
