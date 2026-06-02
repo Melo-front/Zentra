@@ -13,7 +13,7 @@ h1{
     font-style: italic;
 }
 .btn-beige {
-    background-color: #c8a46b; /* beige dorado */
+    background-color: #c8a46b; 
     color: white;
     border: none;
     padding: 12px 28px;
@@ -46,12 +46,11 @@ h2{
     font-size: 40px;
     
 }
-.cole{
-    display: flex;
-}
+
 .mujer, .hombre{
     flex: 1;
     min-height: 390px;
+    width:100%;
 }
 .hombre{
     background-image: url("../Img/Hombre.jpg");
