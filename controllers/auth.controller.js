@@ -1,6 +1,7 @@
 const { response } = require("express");
 const User=require("../models/User")
 const bcrypt=require('bcrypt')
+const jwt=require("jsonwebtoken")
 
 const registrar = async(request,responce) =>{
     try{
@@ -35,8 +36,14 @@ const login= async(req,res)=>{
         if(!user) return res.status(400).json({msg: "El Usuario no existe"})
         const passwordcoicinded= await bcrypt.compare(password, user.password)
          if(!passwordcoicinded) return res.status(400).json({msg: "Contraseña incorrecta"})
-         res.json({
-            msg: "Inicio sesión"
+         
+        const token = jwt.sign(
+            {id: user._id},
+            process.env.JWT_SECRET,
+            {expiresIn:"1h"}
+        )
+        res.json({
+             token
          })
     }catch(error){
         res.status(500).json({error:error.message})
