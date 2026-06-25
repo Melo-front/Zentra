@@ -1,5 +1,6 @@
 const { response } = require("express");
 const User=require("../models/User")
+const Task=require("../models/Task")
 const bcrypt=require('bcrypt')
 const jwt=require("jsonwebtoken")
 
@@ -50,6 +51,7 @@ const login= async(req,res)=>{
     }
 
 }
+
 
 
 module.exports={
