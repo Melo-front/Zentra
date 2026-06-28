@@ -77,3 +77,64 @@ h2{
 footer{
     background-color: #2f3e2f;
 }
+
+
+.carrusel{
+    position:relative;
+    background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
+}
+
+#imagen{
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.botoncarrusel{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,.6);
+    color:white;
+    border:none;
+    padding:15px;
+    cursor:pointer;
+    font-size:22px;
+}
+
+#anterior{
+    left:10px;
+}
+
+#siguiente{
+    right:10px;
+}
+
+button:hover{
+    background:black;
+}
+
+.whatsapp{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 65px;
+    height: 65px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 35px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,.3);
+    transition: transform .3s;
+}
+
+.whatsapp:hover{
+    transform: scale(1.1);
+    color: white;
+}
