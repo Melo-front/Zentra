@@ -6,7 +6,7 @@ const Task=require("../models/Task")
 const creartarea= async(req,res)=>{
     try{
          const tareaExiste = await Task.findOne({
-            titulo: titulo,
+            titulo:  req.body.titulo,
             usuario: req.user.id
         });
 
@@ -32,7 +32,7 @@ const creartarea= async(req,res)=>{
 
 const traertarea= async(req,res)=>{
     try{
-        const tasks = await Task.findOne({
+        const tasks = await Task.find({
             usuario:req.user.id
         })
         
@@ -62,9 +62,13 @@ const actualizartarea= async(req,res)=>{
 const eliminartarea= async(req,res)=>{
     try{
         const tasks = await Task.findByIdAndDelete(
-        )
-        
-        res.json("El elemento hay sido eliminado");
+            req.params.id)
+        if (!tasks) {
+            return res.status(404).json({
+                msg: "La tarea no existe."
+            });
+        }
+        res.json(`La tarea ${tasks.titulo} ha sido eliminada`);
     }catch(error){
         res.status(500).json({error:`Erro al eliminar la tarea  ${error.message}`})
     }
