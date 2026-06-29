@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
-
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -56,21 +56,33 @@ export class LoginComponent {
       this.authService.login(this.form.value as any)
       .subscribe({
         next: (respuesta) => {
-          alert("Inicaste Sesion")
+          Swal.fire({
+            icon: 'success',
+            title: '¡Bienvenido!',
+            text: 'Has iniciado sesión correctamente.',
+            confirmButtonText: 'Aceptar'
+          });
           console.log(respuesta)
           this.cargando = false;
           console.log(respuesta);
-
-          this.authService.guardartoken(respuesta.token)
           
-          localStorage.setItem("token", respuesta.token);
+          this.authService.guardartoken(respuesta.token);
 
-          
           this.router.navigate(['/task']);
+
+          
+          
         },
         error: (error) => {
           this.cargando = false;
-          this.error = "Error al iniciar sesión";
+         
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Correo o contraseña incorrectos'
+          });
+                  
+          
           console.log(error);
         }
       });

@@ -4,6 +4,7 @@ import { FormBuilder,ReactiveFormsModule,Validator, Validators } from '@angular/
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router,RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -61,12 +62,23 @@ export class RegisterComponent {
         .subscribe({
           next:()=>{
             this.cargando=false;
-            alert("Usuario registrado correctamente")
-            this.router.navigate(["/login"])
+             Swal.fire({
+                icon: 'success',
+                title: '¡Registro exitoso!',
+                text: 'Tu cuenta ha sido creada correctamente.',
+                confirmButtonColor: '#c8a46b'
+              }).then(() => {
+                this.router.navigate(['/login']);
+              });
           },
           error:(error)=>{
             this.cargando=false;
-            this.error=error.error?.msg||"Error al registrar"
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: error.error?.msg || 'No fue posible registrar el usuario.',
+              confirmButtonColor: '#c8a46b'
+            });
           }
         })
   }

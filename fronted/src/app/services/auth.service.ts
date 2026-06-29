@@ -34,6 +34,13 @@ export class AuthService {
     return sessionStorage.getItem("token")
   }
 
+  estaAutenticado():boolean{
+    return !!this.obtenertoken();
+  }
+
+  logout():void{
+    sessionStorage.removeItem("token")
+  }
 }
 
 
