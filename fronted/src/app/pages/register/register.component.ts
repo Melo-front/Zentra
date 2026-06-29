@@ -21,7 +21,8 @@ export class RegisterComponent {
   private router=inject(Router);
 
   cargando: boolean=false;
-  error:string="";
+  error: string = "";
+  
   form=this.fb.group({
     nombre:[
       "",
@@ -47,6 +48,7 @@ export class RegisterComponent {
   });
 
   registrar(){
+
     if(this.form.invalid){
       this.form.markAllAsTouched();
       return;
@@ -64,7 +66,7 @@ export class RegisterComponent {
           },
           error:(error)=>{
             this.cargando=false;
-            this.error=error.error?.msg||"Error al regsitrar"
+            this.error=error.error?.msg||"Error al registrar"
           }
         })
   }
