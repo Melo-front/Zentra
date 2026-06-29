@@ -26,4 +26,14 @@ export class AuthService {
     usuario
     )
   }
+
+  guardartoken(token: string): void{
+    sessionStorage.setItem("token", token)
+  }
+  obtenertoken():string|null{
+    return sessionStorage.getItem("token")
+  }
+
 }
+
+

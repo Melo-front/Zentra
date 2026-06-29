@@ -59,7 +59,9 @@ export class LoginComponent {
           alert("Inicaste Sesion")
           console.log(respuesta)
           this.cargando = false;
+          console.log(respuesta);
 
+          this.authService.guardartoken(respuesta.token)
           
           localStorage.setItem("token", respuesta.token);
 
