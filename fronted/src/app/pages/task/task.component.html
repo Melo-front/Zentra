@@ -1,1 +1,52 @@
-<p>task works!</p>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-header card-color text-white text-center">
+                    <h3>Nueva Tarea</h3>
+                </div>
+
+                <div class="card-body">
+                    <form>
+
+                        <div class="mb-3">
+                            <label for="titulo" class="form-label">Tarea</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="titulo"
+                                name="titulo"
+                                placeholder="Ingrese el título de la tarea"
+                                required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-beige">
+                                Guardar Tarea
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tarea de ejemplo</td>
+            <td>Pendiente</td>
+        </tr>
+    </tbody>
+</table>
