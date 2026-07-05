@@ -1,4 +1,6 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, 
+        provideZoneChangeDetection,
+      } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { importProvidersFrom } from '@angular/core';
 import { Component } from '@angular/core';
@@ -12,6 +14,7 @@ export const appConfig: ApplicationConfig = {
   provideRouter(routes),
   provideHttpClient(),
   provideAnimations(),
-  importProvidersFrom(ReactiveFormsModule)
+  importProvidersFrom(ReactiveFormsModule),
+
   ]
 };

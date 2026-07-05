@@ -1,5 +1,5 @@
 import { Component,inject } from '@angular/core';
-import { FormBuilder,ReactiveFormsModule,Validator, Validators } from '@angular/forms';
+import { FormBuilder,ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
@@ -17,6 +17,7 @@ import Swal from 'sweetalert2';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  
   private fb=inject(FormBuilder);
   private authService= inject(AuthService);
   private router=inject(Router);

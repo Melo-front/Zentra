@@ -1,0 +1,89 @@
+<div class="container pt-5">
+
+    <h2 class="text-center  fondop">
+        Productos
+    </h2>
+
+    @if(cargando){
+
+        <div class="text-center">
+
+            <div class="spinner-border"></div>
+
+        </div>
+
+    }@else{
+
+        <div class="row">
+
+            @for(producto of productos; track producto._id){
+
+                <div class="col-md-4 mb-4">
+
+                    <div class="card shadow h-100">
+
+                        <img
+                            [src]="producto.image"
+                            id="imagen"
+                            class="card-img-top"
+                            alt="Producto"
+                            >
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                {{producto.producto}}
+                            </h5>
+
+                            <p>
+                                <strong>Marca:</strong>
+                                {{producto.marca}}
+                            </p>
+
+                            <p>
+                                <strong>Categoría:</strong>
+                                {{producto.categoria}}
+                            </p>
+
+                            <p>
+                                <strong>Precio:</strong>
+                                ${{producto.precio}}
+                            </p>
+
+                            <p>
+                                <strong>Cantidad:</strong>
+                                {{producto.cantidad}}
+                            </p>
+
+                            <p>
+                                <strong>Descripción:</strong>
+                                {{producto.descripcion}}
+                            </p>
+
+                            <div class="d-flex gap-2">
+                                <button
+                                     class="btn btn-warning flex-fill"
+                                (click)="editarProducto(producto._id)">
+                                Editar
+                                </button>
+
+                                <button
+                                    class="btn btn-danger flex-fill"
+                                    (click)="eliminarProducto(producto._id)">
+                                    Eliminar
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+
+    }
+
+</div>

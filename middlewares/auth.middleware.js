@@ -1,8 +1,8 @@
 const jwt=require("jsonwebtoken")
 
 module.exports=(req, res, next)=>{
-    const headerAutorization = req.header("Authorization");
-    const token=headerAutorization.split(" ")[1];
+    const headerAuthorization = req.header("Authorization");
+     const token = headerAuthorization.split(" ")[1];
 
     if(!token){
         return res.status(401).json({msg: "NO hay token"})

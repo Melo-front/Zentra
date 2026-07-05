@@ -68,7 +68,7 @@ export class LoginComponent {
           
           this.authService.guardartoken(respuesta.token);
 
-          this.router.navigate(['/task']);
+          this.router.navigate(['/productos']);
 
           
           

@@ -19,7 +19,10 @@
             <ul class="navbar-nav ms-auto">
                 <ng-container *ngIf="autenticado">
                     <li class="nav-item px-2 pt-2">
-                        <a routerLink="/task" class="text-decoration-none text-dark text-nowrap">Mis tareas</a>
+                        <a routerLink="/crear-producto" class="text-decoration-none text-dark text-nowrap">Crear Productos</a>
+                    </li>
+                    <li class="nav-item px-2 pt-2">
+                        <a routerLink="/productos" class="text-decoration-none text-dark text-nowrap">Productos</a>
                     </li>
                     <li class="nav-item">
                         <button class="btn btn-beige mt-2 text-nowrap p-1" (click)="logout()">
