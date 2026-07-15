@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { enviroment } from '../../environment/environment';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -33,6 +34,16 @@ export class AuthService {
   obtenertoken():string|null{
     return sessionStorage.getItem("token")
   }
+
+  obtenerHeaders(): HttpHeaders {
+
+  const token = this.obtenertoken();
+
+  return new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+
+}
 
   estaAutenticado():boolean{
     return !!this.obtenertoken();

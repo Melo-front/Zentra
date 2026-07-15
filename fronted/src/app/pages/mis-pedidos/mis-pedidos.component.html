@@ -1,0 +1,57 @@
+<div class="container mt-4">
+
+    <h2 class="mb-4 text-center">
+        Mis pedidos
+    </h2>
+
+    <div
+        class="card mb-3"
+        *ngFor="let pedido of pedidos">
+
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between">
+
+                <div>
+
+                    <h5>
+                        Pedido #{{pedido._id.slice(-6)}}
+                    </h5>
+
+                    <p>
+                        Estado:
+                        <span class="badge bg-warning text-dark">
+                            {{pedido.estado}}
+                        </span>
+                    </p>
+
+                </div>
+
+                <div class="text-end">
+
+                    <h4>
+                        ${{pedido.total}}
+                    </h4>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div
+                *ngFor="let producto of pedido.productos">
+
+                {{producto.nombre}}
+
+                <strong>
+                    x{{producto.cantidad}}
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

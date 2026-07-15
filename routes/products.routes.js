@@ -5,16 +5,18 @@ const { crearproducto,traerproducto,
     eliminarproducto,
     traerproductoid } = require("../controllers/products.controllers");
 const validartoken=require("../middlewares/auth.middleware")
+const validarRol=require("../middlewares/role.middleware")
 const {upload}=require("../middlewares/upload")
 
-router.post("/crearproducto",validartoken,upload,crearproducto);
+router.post("/crearproducto",validartoken, validarRol("admin"),upload,crearproducto);
 
-router.get("/traerproducto",validartoken,traerproducto);
+router.get("/traerproducto",traerproducto);
 
-router.put("/:id",validartoken,actualizarproducto);
+router.put("/:id",validartoken, validarRol("admin"),actualizarproducto);
 
-router.delete("/:id",validartoken,eliminarproducto);
+router.delete("/:id",validartoken, validarRol("admin"),eliminarproducto);
 
 router.get("/:id", validartoken, traerproductoid);
+
 
 module.exports=router;

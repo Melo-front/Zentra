@@ -7,6 +7,7 @@ const task=require("../routes/task.routes")
 const product=require("../routes/products.routes");
 const cors=require("cors")
 const path = require("path");
+const pedidoRoute = require("../routes/pedido.routes");
 
 dotenv.config();
 connectDB();
@@ -19,6 +20,7 @@ app.use('/api/auth',auth)
 app.use('/api/task',task)
 app.use('/api/product',product)
 app.use("/public/images", express.static(path.join(__dirname, "../public/images")));
+app.use("/api/pedido", pedidoRoute);
 
 
 

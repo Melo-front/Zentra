@@ -1,10 +1,13 @@
-import { Component,inject, OnInit } from '@angular/core';
+import { Component,inject, OnInit ,DoCheck } from '@angular/core';
 import { FormBuilder,ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
 import { Router,RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../../services/auth.service';
+import { CarritoService } from '../../services/carrito.service';
+
 
 @Component({
   selector: 'app-productos',
@@ -14,17 +17,27 @@ import Swal from 'sweetalert2';
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
-export class ProductosComponent implements OnInit {
+export class ProductosComponent implements OnInit,DoCheck {
 
   private productService = inject(ProductService);
   private router = inject(Router);
+  private authService=inject(AuthService);
+  private carritoService = inject(CarritoService)
 
 
   productos: any[] = [];
 
   cargando = false;
 
+  esAdmin = false;
+  autenticado:boolean=false;
+  ngDoCheck(): void {
+    this.autenticado=this.authService.estaAutenticado()
+  }
+
   ngOnInit(): void {
+    this.esAdmin = sessionStorage.getItem("rol") === "admin";
+
     this.obtenerProductos();
   }
 
@@ -106,8 +119,19 @@ export class ProductosComponent implements OnInit {
 
   }
 
+    agregarAlCarrito(producto: any): void {
 
-  
 
+  this.carritoService.agregarProducto(producto);
+
+  Swal.fire({
+    icon: 'success',
+    title: 'Producto agregado',
+    text: 'El producto se agregó al carrito.',
+    timer: 1500,
+    showConfirmButton: false
+  });
+
+}
 
 }

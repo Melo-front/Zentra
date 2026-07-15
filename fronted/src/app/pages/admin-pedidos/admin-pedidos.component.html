@@ -1,0 +1,72 @@
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">
+        Administración de pedidos
+    </h2>
+
+    <div
+        class="card mb-3"
+        *ngFor="let pedido of pedidos">
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <h5>{{pedido.usuario.nombre}}</h5>
+
+                    <small>{{pedido.usuario.email}}</small>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <strong>Total</strong>
+
+                    <p>${{pedido.total}}</p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <strong>Estado</strong>
+
+                    <select
+                    class="form-select fw-bold"
+                    [style.background-color]="'white'"
+
+                    [value]="pedido.estado"
+                    (change)="cambiarEstado(pedido._id, $event)">
+
+                    <option value="Pendiente">🟡 Pendiente</option>
+                    <option value="Enviado">🔵 Enviado</option>
+                    <option value="Entregado">🟢 Entregado</option>
+                    <option value="Cancelado">🔴 Cancelado</option>
+
+                </select>
+
+                </div>
+
+                <div class="col-md-2 text-end">
+                    <strong>Fecha</strong>
+                    {{pedido.createdAt | date:'short'}}
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div *ngFor="let producto of pedido.productos">
+
+                {{producto.nombre}}
+                ({{producto.cantidad}})
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

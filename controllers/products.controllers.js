@@ -46,9 +46,7 @@ const crearproducto= async(req,res)=>{
 
 const traerproducto = async (req, res) => {
     try {
-        const productos = await Product.find({
-            usuario: req.user.id
-        });
+        const productos = await Product.find();
 
         return res.status(200).json(productos);
 
@@ -63,8 +61,7 @@ const traerproductoid = async (req, res) => {
     try {
 
         const producto = await Product.findOne({
-            _id: req.params.id,
-            usuario: req.user.id
+            _id: req.params.id
         });
 
         if (!producto) {
@@ -84,11 +81,8 @@ const traerproductoid = async (req, res) => {
 
 const actualizarproducto= async(req,res)=>{
     try{
-        const product = await Product.findOneAndUpdate(
-            {
-        _id: req.params.id,
-        usuario: req.user.id
-            },
+        const product = await Product.findByIdAndUpdate(
+            req.params.id,
             req.body,
             { new: true,
             runValidators: true
@@ -111,9 +105,7 @@ const actualizarproducto= async(req,res)=>{
 
 const eliminarproducto= async(req,res)=>{
     try{
-        const producto = await Product.findOneAndDelete(
-            {_id: req.params.id,
-            usuario: req.user.id})
+        const producto = await Product.findByIdAndDelete(req.params.id);
         if (!producto) {
             return res.status(404).json({
                 msg: "El producto no existe."

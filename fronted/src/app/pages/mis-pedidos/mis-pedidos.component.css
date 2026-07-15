@@ -1,0 +1,20 @@
+.btn-beige {
+    background-color: #e4cda8;
+    color: black;
+    border: none;
+    padding: 1px 2px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.btn-beige:hover {
+    background-color: #b48f58;
+}
+
+:host {
+    display: block;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
+}

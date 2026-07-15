@@ -6,6 +6,10 @@ import { authGuard } from './guards/auth.guard';
 import { CrearProductoComponent } from './pages/crear-producto/crear-producto.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { EditarProductoComponent } from './pages/editar-producto/editar-producto.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
+import { MisPedidosComponent } from './pages/mis-pedidos/mis-pedidos.component';
+import { AdminPedidosComponent } from './pages/admin-pedidos/admin-pedidos.component';
 
 export const routes: Routes = [
     {
@@ -29,7 +33,7 @@ export const routes: Routes = [
     {
     path: 'productos',
     component: ProductosComponent,
-    canActivate: [authGuard]
+    
     
   },
   {
@@ -41,6 +45,25 @@ export const routes: Routes = [
     path: 'editar-producto/:id',
     component: EditarProductoComponent,
     canActivate: [authGuard]
-  }
+  },
+    {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'carrito',
+    component: CarritoComponent,
+    canActivate: [authGuard]
+},
+{
+    path: 'mis-pedidos',
+    component: MisPedidosComponent,
+    canActivate: [authGuard]
+},
+{
+    path: 'admin-pedidos',
+    component: AdminPedidosComponent,
+    canActivate: [authGuard]
+}
 
 ];

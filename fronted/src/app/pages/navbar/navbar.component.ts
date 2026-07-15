@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, DoCheck, inject } from '@angular/core';
+import { Component, DoCheck, inject, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -14,7 +14,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements DoCheck {
+export class NavbarComponent implements DoCheck, OnInit {
   private authService=inject(AuthService);
   private router=inject(Router);
 
@@ -25,5 +25,13 @@ export class NavbarComponent implements DoCheck {
   logout():void{
     this.authService.logout();
     this.router.navigate(["/login"])
+  }
+  
+  esAdmin = false;
+
+  ngOnInit(): void {
+
+    this.esAdmin = sessionStorage.getItem('rol') === 'admin';
+
   }
 }

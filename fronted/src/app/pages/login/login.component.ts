@@ -64,9 +64,10 @@ export class LoginComponent {
           });
           console.log(respuesta)
           this.cargando = false;
-          console.log(respuesta);
-          
+        
           this.authService.guardartoken(respuesta.token);
+          sessionStorage.setItem("rol", respuesta.rol);
+
 
           this.router.navigate(['/productos']);
 

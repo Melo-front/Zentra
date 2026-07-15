@@ -1,0 +1,187 @@
+.hero {
+    background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navegar {
+    background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.btn-beige {
+    background-color: #c8a46b;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: .3s;
+}
+
+.btn-beige:hover {
+    background: black;
+}
+
+.Explora {
+    display: flex;
+    flex-direction: column;
+}
+
+.mujer,
+.hombre {
+    flex: 1;
+    min-height: 390px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 40px;
+}
+
+.mujer {
+    background-image: url("/Img/Mujer.jpg");
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hombre {
+    background-image: url("/Img/Hombre.jpg");
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.Todos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, white, #E8DCCB);
+    padding: 10px 0;
+}
+
+footer {
+    background-color: #2f3e2f;
+}
+
+.carrusel {
+    position: relative;
+    background: linear-gradient(135deg, #F5F0E6, #E8DCCB);
+}
+
+.imagen-carrusel {
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.botoncarrusel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, .6);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 22px;
+    transition: .3s;
+}
+
+.botoncarrusel:hover {
+    background: black;
+}
+
+.anterior {
+    left: 10px;
+}
+
+.siguiente {
+    right: 10px;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 65px;
+    height: 65px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 35px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    transition: transform .3s;
+}
+
+.whatsapp:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+footer a {
+    color: white;
+    font-size: 25px;
+    margin-right: 15px;
+    transition: .3s;
+}
+
+footer a:hover {
+    color: #c8a46b;
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 15px;
+    }
+
+    .imagen-carrusel {
+        width: 90%;
+        height: auto;
+    }
+
+    .mujer,
+    .hombre {
+        min-height: 300px;
+        font-size: 30px;
+    }
+
+    .botoncarrusel {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .Todos {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .whatsapp {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+}

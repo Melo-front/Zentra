@@ -9,6 +9,7 @@ const registrar = async(request,responce) =>{
     const nombre=request.body.nombre;
     const email=request.body.email;
     const password=request.body.password;
+    const rol=request.body.rol;
 
     let user = await User.findOne({email: email});
     if(user) return responce.status(400).json({msg:`El usario ${email} ya existe en la base de datos`});
@@ -18,7 +19,8 @@ const registrar = async(request,responce) =>{
     user= new User({
         nombre: nombre,
         email: email,
-        password: hashedPassword
+        password: hashedPassword,
+        rol: rol || "cliente"
     })
     
     await user.save();
@@ -39,12 +41,15 @@ const login= async(req,res)=>{
          if(!passwordcoicinded) return res.status(400).json({msg: "Contraseña incorrecta"})
          
         const token = jwt.sign(
-            {id: user._id},
+            {id: user._id,
+            rol: user.rol
+            },
             process.env.JWT_SECRET,
             {expiresIn:"1h"}
         )
         res.json({
-             token
+             token,
+             rol: user.rol
          })
     }catch(error){
         res.status(500).json({error:error.message})
