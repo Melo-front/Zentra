@@ -29,7 +29,7 @@ const crearproducto= async(req,res)=>{
             categoria: req.body.categoria,
             precio: req.body.precio,
             cantidad: req.body.cantidad,
-            image: `http://localhost:3000/public/images/${req.file.filename}`,
+            image: `/public/images/${req.file.filename}`,
             imageName: req.file.originalname,
             usuario: req.user.id
         });
